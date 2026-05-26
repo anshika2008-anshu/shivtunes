@@ -1,0 +1,1272 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+/* BODY BACKGROUND */
+body{
+  background:
+  linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.85)),
+  url("https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1600&auto=format&fit=crop");
+
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+
+  color:white;
+  min-height:100vh;
+}
+
+/* NAVBAR */
+.navbar{
+  width:100%;
+  height:85px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 50px;
+
+  background:rgba(0,0,0,0.25);
+  backdrop-filter:blur(12px);
+
+  position:fixed;
+  top:0;
+  z-index:1000;
+
+  border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+/* LOGO */
+.logo{
+  font-size:34px;
+  font-weight:700;
+  text-shadow:0 0 10px #ff00ff, 0 0 25px #ff00ff;
+}
+
+/* LINKS */
+.nav-links a{
+  text-decoration:none;
+  color:white;
+  margin-left:30px;
+  font-size:18px;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#ff00ff;
+  text-shadow:0 0 10px #ff00ff;
+}
+
+/* HERO */
+.hero{
+  width:100%;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+}
+
+.overlay{
+  position:absolute;
+  width:100%;
+  height:100vh;
+  background:linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8));
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+/* TITLE */
+.hero-content h1{
+  font-size:100px;
+  text-shadow:0 0 15px #ff00ff, 0 0 35px #ff00ff;
+}
+
+.hero-content p{
+  margin-top:20px;
+  font-size:28px;
+  color:#ddd;
+}
+
+/* BUTTON */
+.hero-btn{
+  display:inline-block;
+  margin-top:35px;
+  padding:16px 40px;
+  border-radius:40px;
+  text-decoration:none;
+  color:white;
+  font-size:18px;
+
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);
+  backdrop-filter:blur(12px);
+
+  transition:0.4s;
+  box-shadow:0 0 20px rgba(255,0,255,0.4);
+}
+
+.hero-btn:hover{
+  transform:scale(1.08);
+  background:#ff00ff;
+}
+
+/* TRENDING */
+.trending{
+  width:90%;
+  margin:auto;
+  padding-bottom:80px;
+}
+
+.trending h2{
+  text-align:center;
+  font-size:55px;
+  margin-bottom:40px;
+  text-shadow:0 0 10px #ff00ff;
+}
+
+/* GRID */
+.songs{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:35px;
+}
+
+/* CARD */
+.music-card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(14px);
+  border-radius:28px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.12);
+  transition:0.5s;
+}
+
+.music-card:hover{
+  transform:translateY(-12px) scale(1.03);
+  box-shadow:0 0 25px rgba(255,0,255,0.6);
+}
+
+/* IMAGE */
+.music-card img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+
+/* TEXT */
+.song-content{
+  padding:24px;
+  text-align:center;
+}
+
+.song-content h3{
+  font-size:28px;
+  margin-bottom:22px;
+}
+
+/* BUTTON */
+.card-btn{
+  display:inline-block;
+  padding:12px 28px;
+  border-radius:30px;
+  text-decoration:none;
+  color:white;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.2);
+  transition:0.4s;
+}
+
+.card-btn:hover{
+  background:#ff00ff;
+  transform:scale(1.08);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#ddd;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .hero-content h1{
+    font-size:55px;
+  }
+
+  .hero-content p{
+    font-size:18px;
+  }
+
+  .navbar{
+    padding:0 20px;
+  }
+
+  .nav-links a{
+    font-size:14px;
+    margin-left:15px;
+  }
+}
+
+
+
+/* LOGIN / REGISTER BOX */
+
+.auth-container{
+  width:320px;
+
+  padding:30px 25px;
+
+ body{
+  background:url("https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat fixed;
+}
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px;
+
+  backdrop-filter: blur(12px);
+
+  text-align:center;
+
+  box-shadow:0 15px 40px rgba(0,0,0,0.6);
+
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* TITLE */
+
+.auth-container h1{
+  color:#1db954;
+  font-size:26px;
+  margin-bottom:5px;
+}
+
+.auth-container h2{
+  font-size:18px;
+  font-weight:normal;
+  color:#ccc;
+  margin-bottom:18px;
+}
+
+/* INPUTS */
+
+.auth-container input{
+  width:100%;
+  padding:11px 12px;
+
+  margin:8px 0;
+
+  border:none;
+  border-radius:10px;
+
+  background:rgba(255,255,255,0.08);
+  color:white;
+
+  outline:none;
+  font-size:14px;
+}
+
+.auth-container input::placeholder{
+  color:#aaa;
+}
+
+/* BUTTON */
+
+.auth-container button{
+  width:100%;
+  padding:11px;
+
+  margin-top:12px;
+
+  border:none;
+  border-radius:10px;
+
+  background:#1db954;
+  color:white;
+
+  font-size:15px;
+  font-weight:bold;
+
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.auth-container button:hover{
+  background:#17a74a;
+  transform:scale(1.03);
+}
+
+/* TEXT + LINK */
+
+.auth-container p{
+  margin-top:12px;
+  font-size:13px;
+  color:#bbb;
+}
+
+.auth-container a{
+  color:#1db954;
+  text-decoration:none;
+}
+
+.auth-container a:hover{
+  text-decoration:underline;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(15px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+  .navbar{
+    padding:0 20px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .nav-links a{
+    margin-left:10px;
+    font-size:14px;
+  }
+
+}
+
+
+/* MAIN CENTER */
+
+.main{
+
+  width:100%;
+  height:100vh;
+
+  display:flex;
+  flex-direction:column;
+
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  background:
+  linear-gradient(
+    135deg,
+    #0f0c29,
+    #302b63,
+    #24243e
+  );
+
+}
+
+/* HEADING */
+
+.main-heading{
+
+  font-size:55px;
+
+  font-weight:700;
+
+  margin-bottom:15px;
+
+  background:linear-gradient(
+    90deg,
+    #ff4d6d,
+    #ffd166,
+    #06d6a0
+  );
+
+  -webkit-background-clip:text;
+
+  -webkit-text-fill-color:
+  transparent;
+
+}
+
+/* SUBTEXT */
+
+.sub-text{
+
+  font-size:18px;
+
+  color:#ddd;
+
+  margin-bottom:35px;
+
+}
+
+/* SEARCH BOX CENTER */
+
+.search-box{
+
+  width:700px;
+
+  display:flex;
+
+  justify-content:center;
+  align-items:center;
+
+  gap:15px;
+
+  padding:20px;
+
+  border-radius:70px;
+
+  background:
+  rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(12px);
+
+  box-shadow:
+  0 0 25px
+  rgba(255,255,255,0.1);
+
+}
+
+/* INPUT */
+
+.search-box input{
+
+  width:75%;
+
+  padding:18px 20px;
+
+  border:none;
+  outline:none;
+
+  border-radius:50px;
+
+  background:
+  rgba(255,255,255,0.12);
+
+  color:white;
+
+  font-size:18px;
+
+}
+
+/* PLACEHOLDER */
+
+.search-box input::placeholder{
+
+  color:#ccc;
+
+}
+
+/* BUTTON */
+
+.search-btn{
+
+  padding:18px 28px;
+
+  border:none;
+  outline:none;
+
+  border-radius:50px;
+
+  font-size:17px;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  color:white;
+
+  background:
+  linear-gradient(
+    45deg,
+    #ff4d6d,
+    #ff9f1c
+  );
+
+  transition:0.4s;
+
+}
+
+/* HOVER */
+
+.search-btn:hover{
+
+  transform:scale(1.08);
+
+  box-shadow:
+  0 0 20px #ff4d6d;
+
+}
+
+/* RESULT */
+
+#result{
+
+  margin-top:20px;
+
+  color:#ff4d6d;
+
+  font-size:22px;
+
+  font-weight:600;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*about style.css*/
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+
+  background:
+  linear-gradient(
+  rgba(0,0,0,0.45),
+  rgba(0,0,0,0.75)
+  ),
+
+  url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1600&auto=format&fit=crop");
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-attachment:fixed;
+
+  color:white;
+
+  min-height:100vh;
+
+}
+
+/* NAVBAR */
+
+.navbar{
+
+  width:100%;
+  height:85px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:0 50px;
+
+  background:rgba(0,0,0,0.3);
+
+  backdrop-filter:blur(10px);
+
+  position:fixed;
+  top:0;
+
+  z-index:1000;
+
+}
+
+.logo{
+
+  font-size:34px;
+
+  font-weight:700;
+
+}
+
+.nav-links a{
+
+  text-decoration:none;
+
+  color:white;
+
+  margin-left:30px;
+
+  font-size:18px;
+
+  transition:0.3s;
+
+}
+
+.nav-links a:hover,
+.active{
+
+  color:#ff4d6d;
+
+}
+
+/* HERO */
+
+.hero{
+
+  width:100%;
+  height:70vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+}
+
+.overlay{
+
+  position:absolute;
+
+  width:100%;
+  height:70vh;
+
+  background:
+  linear-gradient(
+  rgba(0,0,0,0.2),
+  rgba(0,0,0,0.7)
+  );
+
+}
+
+.hero-content{
+
+  position:relative;
+
+  z-index:2;
+
+  padding:20px;
+
+}
+
+.hero-content h1{
+
+  font-size:80px;
+
+  margin-bottom:20px;
+
+  text-shadow:0 0 25px rgba(0,0,0,0.8);
+
+}
+
+.hero-content p{
+
+  font-size:24px;
+
+  color:#ddd;
+
+}
+
+/* ABOUT SECTION */
+
+.about-section{
+
+  width:100%;
+
+  display:flex;
+  justify-content:center;
+
+  padding:50px 20px;
+
+}
+
+.about-card{
+
+  width:800px;
+
+  background:
+  rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(15px);
+
+  border-radius:30px;
+
+  padding:50px;
+
+  text-align:center;
+
+  border:
+  1px solid rgba(255,255,255,0.1);
+
+  box-shadow:
+  0 0 30px rgba(0,0,0,0.4);
+
+}
+
+.about-card h2{
+
+  font-size:45px;
+
+  margin-bottom:25px;
+
+}
+
+.about-card p{
+
+  font-size:20px;
+
+  line-height:38px;
+
+  color:#e5e5e5;
+
+}
+
+/* FOOTER */
+
+footer{
+
+  text-align:center;
+
+  padding:30px;
+
+  color:#ddd;
+
+  font-size:18px;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .navbar{
+
+    padding:0 20px;
+
+  }
+
+  .logo{
+
+    font-size:26px;
+
+  }
+
+  .nav-links a{
+
+    margin-left:15px;
+
+    font-size:15px;
+
+  }
+
+  .hero-content h1{
+
+    font-size:45px;
+
+  }
+
+  .hero-content p{
+
+    font-size:18px;
+
+  }
+
+  .about-card{
+
+    width:95%;
+
+    padding:30px;
+
+  }
+
+  .about-card h2{
+
+    font-size:32px;
+
+  }
+
+  .about-card p{
+
+    font-size:17px;
+
+    line-height:30px;
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ================= RESET ================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  padding:0;
+  min-height:100vh;
+  overflow-x:hidden;
+  color:white;
+
+  /* ✨ BEAUTIFUL GLOSSY BACKGROUND IMAGE */
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,0,0,0.72),
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.88)
+    ),
+    url("https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1600&auto=format&fit=crop");
+
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+/* ================= DARK OVERLAY ================= */
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.92)
+  );
+
+  z-index:-1;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  width:100%;
+  height:85px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:0 50px;
+
+  position:fixed;
+  top:0;
+  left:0;
+
+  z-index:1000;
+
+  background:rgba(255,255,255,0.07);
+
+  backdrop-filter:blur(18px);
+
+  border-bottom:
+  1px solid rgba(255,255,255,0.12);
+}
+
+/* ================= LOGO ================= */
+
+.logo{
+  font-size:34px;
+  font-weight:700;
+
+  letter-spacing:1px;
+
+  text-shadow:
+  0 0 10px #ff4d6d,
+  0 0 25px #ff4d6d,
+  0 0 45px #ff4d6d;
+}
+
+/* ================= NAV LINKS ================= */
+
+.nav-links a{
+  text-decoration:none;
+  color:white;
+
+  margin-left:25px;
+
+  font-size:17px;
+  font-weight:500;
+
+  transition:0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active{
+
+  color:#ff4d6d;
+
+  text-shadow:
+  0 0 10px #ff4d6d;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  width:100%;
+  height:78vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+  flex-direction:column;
+
+  padding-top:90px;
+}
+
+/* ================= HERO CONTENT ================= */
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero-content h1{
+  font-size:82px;
+  font-weight:700;
+
+  text-shadow:
+  0 0 15px #ff4d6d,
+  0 0 35px #ff4d6d,
+  0 0 60px rgba(255,77,109,0.5);
+}
+
+.hero-content p{
+  margin-top:18px;
+
+  font-size:24px;
+
+  opacity:0.92;
+
+  letter-spacing:1px;
+}
+
+/* ================= SONG GRID ================= */
+
+.songs{
+  width:90%;
+  margin:60px auto;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(300px,1fr));
+
+  gap:30px;
+}
+
+/* ================= GLASS CARD ================= */
+
+.music-card{
+
+  background:
+  rgba(255,255,255,0.08);
+
+  border-radius:24px;
+
+  overflow:hidden;
+
+  backdrop-filter:blur(20px);
+
+  border:
+  1px solid rgba(255,255,255,0.12);
+
+  position:relative;
+
+  transition:0.45s ease;
+
+  box-shadow:
+  0 0 25px rgba(0,0,0,0.4);
+}
+
+/* ================= SHINE EFFECT ================= */
+
+.music-card::before{
+
+  content:'';
+
+  position:absolute;
+
+  top:-90%;
+  left:-70%;
+
+  width:40%;
+  height:230%;
+
+  background:
+  linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+
+  transform:rotate(25deg);
+
+  transition:0.8s;
+
+  z-index:2;
+}
+
+.music-card:hover::before{
+  left:140%;
+}
+
+/* ================= CARD HOVER ================= */
+
+.music-card:hover{
+
+  transform:
+  translateY(-12px)
+  scale(1.03);
+
+  box-shadow:
+  0 0 30px rgba(255,77,109,0.65),
+  0 0 55px rgba(255,77,109,0.25);
+}
+
+/* ================= IMAGE ================= */
+
+.music-card img{
+
+  width:100%;
+  height:250px;
+
+  object-fit:cover;
+
+  transition:0.5s;
+}
+
+.music-card:hover img{
+  transform:scale(1.08);
+}
+
+/* ================= SONG CONTENT ================= */
+
+.song-content{
+  padding:22px;
+  text-align:center;
+}
+
+/* ================= SONG TITLE ================= */
+
+.song-content h2{
+
+  font-size:26px;
+
+  margin-bottom:16px;
+
+  text-transform:capitalize;
+
+  text-shadow:
+  0 0 12px rgba(255,77,109,0.9);
+}
+
+/* ================= AUDIO PLAYER ================= */
+
+audio{
+  width:100%;
+
+  border-radius:35px;
+
+  filter:
+  drop-shadow(0 0 12px rgba(255,77,109,0.45));
+}
+
+/* ================= FULLSCREEN ACTIVE CARD ================= */
+
+.music-card.active{
+
+  position:fixed;
+
+  top:50%;
+  left:50%;
+
+  transform:
+  translate(-50%,-50%)
+  scale(1.02);
+
+  width:92%;
+  max-width:950px;
+
+  z-index:9999;
+
+  background:
+  rgba(0,0,0,0.55);
+
+  backdrop-filter:blur(24px);
+
+  border:
+  1px solid rgba(255,255,255,0.15);
+
+  box-shadow:
+  0 0 40px rgba(255,77,109,0.55),
+  0 0 80px rgba(255,77,109,0.25);
+
+  animation:zoomIn 0.45s ease;
+}
+
+/* ================= ACTIVE IMAGE ================= */
+
+.music-card.active img{
+
+  height:520px;
+
+  width:100%;
+
+  object-fit:cover;
+}
+
+/* ================= ACTIVE TITLE ================= */
+
+.music-card.active h2{
+
+  font-size:40px;
+
+  margin-bottom:22px;
+
+  text-align:center;
+}
+
+/* ================= ACTIVE AUDIO ================= */
+
+.music-card.active audio{
+  height:55px;
+}
+
+/* ================= HIDE OTHER SONGS ================= */
+
+.music-card.hide{
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transform:scale(0.7);
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes zoomIn{
+
+  from{
+
+    opacity:0;
+
+    transform:
+    translate(-50%,-50%)
+    scale(0.7);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+    translate(-50%,-50%)
+    scale(1.02);
+  }
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+
+  text-align:center;
+
+  padding:35px 20px;
+
+  font-size:18px;
+
+  opacity:0.85;
+
+  letter-spacing:1px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .navbar{
+    padding:0 20px;
+  }
+
+  .logo{
+    font-size:28px;
+  }
+
+  .nav-links a{
+    margin-left:15px;
+    font-size:15px;
+  }
+
+  .hero-content h1{
+    font-size:46px;
+  }
+
+  .hero-content p{
+    font-size:17px;
+  }
+
+  .songs{
+    width:94%;
+    gap:22px;
+  }
+
+  .music-card.active{
+    width:95%;
+  }
+
+  .music-card.active img{
+    height:320px;
+  }
+
+  .music-card.active h2{
+    font-size:28px;
+  }
+
+}
