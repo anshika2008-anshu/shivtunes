@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-body">
+
+<div class="auth-container">
+    <h1> 🎼Shivtunes</h1>
+    <h2>Create Account</h2>
+
+    <!-- FORM -->
+    <form onsubmit="registerUser(event)">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Register</button>
+    </form>
+
+    <!-- POPUP -->
+    <div id="popup" class="popup">
+        <div class="popup-box">
+            <p id="popup-msg"></p>
+            <button onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <p>Already have an account? <a href="login.html">Login</a></p>
+</div>
+
+<!-- SCRIPT -->
+<script>
+async function registerUser(e){
+    e.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    try {
+        const res = await fetch("http://localhost:3000/register", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({username, email, password})
+        });
+
+        const msg = await res.text();
+        showPopup(msg);
+
+    } catch (error) {
+        showPopup("Server Error ❌");
+        console.log(error);
+    }
+}
+
+// popup show
+function showPopup(message){
+    document.getElementById("popup").style.display = "flex";
+    document.getElementById("popup-msg").innerText = message;
+}
+
+// popup close
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
