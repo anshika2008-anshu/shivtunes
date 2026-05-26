@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Sad Songs | ShivTunes</title>
+
+<link rel="stylesheet"
+      href="style.css">
+
+</head>
+
+<body>
+
+<!-- DYNAMIC BACKGROUND -->
+
+<div class="dynamic-bg"></div>
+
+
+
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+  <div class="logo">
+    💔 ShivTunes
+  </div>
+
+</nav>
+
+
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <h1>
+      Sad Songs 😔
+    </h1>
+
+    <p>
+      Feel Every Emotion Through Music
+    </p>
+
+  </div>
+
+</section>
+
+
+
+
+
+<!-- SONG SECTION -->
+
+<section class="songs">
+
+
+
+
+<!-- SONG 1 -->
+
+<div class="music-card">
+
+  <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1200&auto=format&fit=crop">
+
+  <div class="song-content">
+
+    <h2>
+      Tere Bina Adhura Sa Hu
+    </h2>
+
+    <audio controls>
+
+      <source src="songs/tere bina adhura sa hu.mp3"
+              type="audio/mpeg">
+
+    </audio>
+
+  </div>
+
+</div>
+
+
+
+
+
+<!-- SONG 2 -->
+
+<div class="music-card">
+
+  <img src="https://images.unsplash.com/photo-1501612780327-45045538702b?q=80&w=1200&auto=format&fit=crop">
+
+  <div class="song-content">
+
+    <h2>
+      Teri Khamoshi
+    </h2>
+
+    <audio controls>
+
+      <source src="songs/teri khamoshi.mp3"
+              type="audio/mpeg">
+
+    </audio>
+
+  </div>
+
+</div>
+
+
+
+
+
+<!-- SONG 3 -->
+
+<div class="music-card">
+
+  <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200&auto=format&fit=crop">
+
+  <div class="song-content">
+
+    <h2>
+      Dekha Zamana Sara
+    </h2>
+
+    <audio controls>
+
+      <source src="songs/Dekha zamana sara.mpeg"
+              type="audio/mpeg">
+
+    </audio>
+
+  </div>
+
+</div>
+
+
+
+
+
+<!-- SONG 4 -->
+
+<div class="music-card">
+
+  <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1200&auto=format&fit=crop">
+
+  <div class="song-content">
+
+    <h2>
+      Mana Dil
+    </h2>
+
+    <audio controls>
+
+      <source src="songs/Mana dil.mpeg"
+              type="audio/mpeg">
+
+    </audio>
+
+  </div>
+
+</div>
+
+
+
+
+
+<!-- SONG 5 -->
+
+<div class="music-card">
+
+  <img src="https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?q=80&w=1200&auto=format&fit=crop">
+
+  <div class="song-content">
+
+    <h2>
+      Agar Tum Sath Ho
+    </h2>
+
+    <audio controls>
+
+      <source src="songs/Agar tum sath ho.mpeg"
+              type="audio/mpeg">
+
+    </audio>
+
+  </div>
+
+</div>
+
+
+
+
+
+<!-- SONG 6 -->
+
+<div class="music-card">
+
+  <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=1200&auto=format&fit=crop">
+
+  <div class="song-content">
+
+    <h2>
+      Channa Mereya
+    </h2>
+
+    <audio controls>
+
+      <source src="songs/Channa Mereya.mpeg"
+              type="audio/mpeg">
+
+    </audio>
+
+  </div>
+
+</div>
+
+
+
+
+
+<!-- SONG 7 -->
+
+<div class="music-card">
+
+  <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1200&auto=format&fit=crop">
+
+  <div class="song-content">
+
+    <h2>
+      Kabira
+    </h2>
+
+    <audio controls>
+
+      <source src="songs/Kabira.mpeg"
+              type="audio/mpeg">
+
+    </audio>
+
+  </div>
+
+</div>
+
+
+
+
+
+<!-- SONG 8 -->
+
+<div class="music-card">
+
+  <img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?q=80&w=1200&auto=format&fit=crop">
+
+  <div class="song-content">
+
+    <h2>
+      Roke Na Ruke Naina
+    </h2>
+
+    <audio controls>
+
+      <source src="songs/Roke Na Ruke Naina.mpeg"
+              type="audio/mpeg">
+
+    </audio>
+
+  </div>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <p>
+    💔 Feel The Pain In Music | ShivTunes
+  </p>
+
+</footer>
+
+
+
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+const cards = document.querySelectorAll('.music-card');
+
+const bg = document.querySelector('.dynamic-bg');
+
+cards.forEach(card => {
+
+  const audio = card.querySelector('audio');
+
+  const image = card.querySelector('img');
+
+  audio.addEventListener('play', () => {
+
+    bg.style.backgroundImage = `url(${image.src})`;
+
+    cards.forEach(c => {
+
+      c.classList.add('hide');
+
+      c.classList.remove('active');
+
+      const otherAudio = c.querySelector('audio');
+
+      if(otherAudio !== audio){
+        otherAudio.pause();
+      }
+
+    });
+
+    card.classList.remove('hide');
+
+    card.classList.add('active');
+
+  });
+
+  audio.addEventListener('pause', () => {
+
+    cards.forEach(c => {
+
+      c.classList.remove('hide');
+
+      c.classList.remove('active');
+
+    });
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
