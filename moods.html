@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🎧 ShivTunes Mood</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+overflow-x:hidden;
+color:white;
+transition:0.4s;
+background-attachment:fixed;
+}
+
+/* THEMES */
+
+body.purple{
+background:linear-gradient(135deg,rgb(153,51,102),#341f97);
+}
+
+body.blue{
+background:linear-gradient(135deg,#0984e3,#0652dd);
+}
+
+body.green{
+background:linear-gradient(135deg,#00b894,#006266);
+}
+
+body.red{
+background:linear-gradient(135deg,#ff4d6d,#c0392b);
+}
+
+body.orange{
+background:linear-gradient(135deg,#ff9f43,#ee5253);
+}
+
+body.dark{
+background:linear-gradient(135deg,#000,#2d3436);
+}
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:75px;
+padding:0 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+}
+
+.menu-btn{
+font-size:32px;
+cursor:pointer;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+position:fixed;
+top:0;
+left:-340px;
+width:320px;
+height:100%;
+padding:22px;
+overflow:auto;
+transition:0.4s;
+z-index:2000;
+
+background:linear-gradient(
+180deg,
+rgba(153,51,102,0.95),
+rgba(40,40,60,0.95)
+);
+
+backdrop-filter:blur(25px);
+
+border-right:1px solid rgba(255,255,255,0.15);
+
+box-shadow:0 0 30px rgba(0,0,0,0.5);
+}
+
+.sidebar.active{
+left:0;
+}
+
+.close-btn{
+font-size:30px;
+text-align:right;
+cursor:pointer;
+margin-bottom:15px;
+}
+
+/* PROFILE */
+
+.profile{
+text-align:center;
+margin-bottom:25px;
+}
+
+.avatar{
+width:90px;
+height:90px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:auto;
+font-size:35px;
+font-weight:700;
+
+background:linear-gradient(
+135deg,
+#38bdf8,
+#8b5cf6,
+#ff4d6d
+);
+
+box-shadow:0 0 20px rgba(255,255,255,0.25);
+
+margin-bottom:15px;
+}
+
+.profile h2{
+font-size:24px;
+margin-bottom:5px;
+}
+
+.profile p{
+font-size:14px;
+opacity:0.8;
+}
+
+/* MOOD LINKS */
+
+.mood-links{
+margin-top:20px;
+}
+
+.mood-links h3{
+margin-bottom:15px;
+}
+
+.mood-links a{
+display:block;
+padding:14px;
+margin-bottom:12px;
+border-radius:14px;
+text-decoration:none;
+color:white;
+background:rgba(255,255,255,0.08);
+transition:0.3s;
+}
+
+.mood-links a:hover{
+transform:scale(1.03);
+background:linear-gradient(
+135deg,
+#38bdf8,
+#8b5cf6
+);
+}
+
+/* SETTINGS */
+
+.settings-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:15px;
+margin-top:18px;
+cursor:pointer;
+font-size:16px;
+font-weight:600;
+color:white;
+
+background:linear-gradient(
+135deg,
+rgba(255,255,255,0.15),
+rgba(255,255,255,0.05)
+);
+}
+
+.settings-panel{
+display:none;
+margin-top:15px;
+padding:15px;
+border-radius:18px;
+background:rgba(255,255,255,0.07);
+}
+
+.settings-panel.active{
+display:block;
+}
+
+/* THEME BUTTONS */
+
+.theme-box{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+margin-top:10px;
+}
+
+.theme-box button{
+padding:10px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-weight:600;
+color:white;
+}
+
+.purple-btn{background:#6c5ce7;}
+.blue-btn{background:#0984e3;}
+.green-btn{background:#00b894;}
+.red-btn{background:#ff4d6d;}
+.orange-btn{background:#ff9f43;}
+.dark-btn{background:#000;}
+
+/* FEEDBACK */
+
+.feedback-btn{
+width:100%;
+padding:12px;
+border:none;
+border-radius:12px;
+margin-top:10px;
+cursor:pointer;
+font-weight:600;
+color:white;
+
+background:linear-gradient(
+135deg,
+#38bdf8,
+#8b5cf6
+);
+}
+
+.feedback-list{
+margin-top:15px;
+display:none;
+}
+
+.feedback-item{
+padding:12px;
+border-radius:12px;
+margin-bottom:10px;
+background:rgba(255,255,255,0.08);
+}
+
+.feedback-user{
+font-weight:700;
+margin-bottom:5px;
+}
+
+/* MAIN */
+
+.main{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:100px 20px;
+text-align:center;
+}
+
+.main h1{
+font-size:55px;
+margin-bottom:10px;
+}
+
+.main p{
+font-size:18px;
+opacity:0.8;
+margin-bottom:35px;
+}
+
+/* SEARCH */
+
+.search-box{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:12px;
+width:100%;
+max-width:650px;
+}
+
+.search-box input{
+flex:1;
+padding:18px;
+border:none;
+outline:none;
+border-radius:18px;
+background:rgba(255,255,255,0.1);
+color:white;
+font-size:16px;
+}
+
+.search-box input::placeholder{
+color:#eee;
+}
+
+.search-box button{
+padding:18px 30px;
+border:none;
+border-radius:18px;
+cursor:pointer;
+font-size:16px;
+font-weight:600;
+color:white;
+
+background:linear-gradient(
+135deg,
+#38bdf8,
+#8b5cf6
+);
+}
+
+#result{
+margin-top:25px;
+font-size:18px;
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,0.7);
+z-index:5000;
+}
+
+.modal-box{
+width:90%;
+max-width:340px;
+padding:20px;
+border-radius:20px;
+background:rgba(20,20,20,0.95);
+}
+
+.modal-box h2{
+margin-bottom:15px;
+text-align:center;
+}
+
+textarea{
+width:100%;
+height:90px;
+padding:12px;
+border:none;
+outline:none;
+border-radius:12px;
+resize:none;
+background:rgba(255,255,255,0.08);
+color:white;
+margin-bottom:12px;
+}
+
+.send-btn{
+width:100%;
+padding:13px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-weight:600;
+color:white;
+
+background:linear-gradient(
+135deg,
+#38bdf8,
+#8b5cf6
+);
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.search-box{
+flex-direction:column;
+}
+
+.search-box button{
+width:100%;
+}
+
+.main h1{
+font-size:40px;
+}
+
+.sidebar{
+width:290px;
+}
+
+}
+
+
+
+</style>
+
+</head>
+
+<body class="purple">
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="logo">
+🎧 ShivTunes
+</div>
+
+<div class="menu-btn" onclick="toggleSidebar()">
+☰
+</div>
+
+</div>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar" id="sidebar">
+
+<div class="close-btn" onclick="toggleSidebar()">
+✖
+</div>
+
+<!-- PROFILE -->
+
+<div class="profile">
+
+<div class="avatar" id="avatar">
+U
+</div>
+
+<h2 id="userName">
+Guest
+</h2>
+
+<p id="userEmail">
+guest@gmail.com
+</p>
+
+</div>
+
+<!-- MOOD LINKS -->
+
+<div class="mood-links">
+
+<h3>
+🎵 Mood Categories
+</h3>
+
+<a href="sad.html">
+😔 Sad Songs
+</a>
+
+<a href="classical.html">
+  🎻golden classic
+</a>
+
+<a href="chill.html">
+😌 Chill Songs
+</a>
+
+<a href="party.html">
+🎉 Party Songs
+</a>
+
+<a href="peacefull.html">
+
+💖 Soulful songs
+</a>
+
+<a href="spiritual-mood.html">
+🔱 bhakti Songs
+</a>
+
+<a href="party.html">
+🎼 dance floor
+</a>
+
+<a href="chill.html">
+😎 dreamy vibes
+</a>
+
+
+<a href="classical.html">
+  🎺classic Songs 
+</a>
+
+
+<a href="sad.html">
+☹️ Broken Melodies
+</a>
+
+
+<a href="spiritual-mood.html">
+🕉️🔱soul of shiva
+</a>
+
+
+
+</div>
+
+<!-- SETTINGS -->
+
+<button class="settings-btn" onclick="toggleSettings()">
+⚙ Settings
+</button>
+
+<div class="settings-panel" id="settingsPanel">
+
+<h3>
+🎨 Themes
+</h3>
+
+<div class="theme-box">
+
+<button class="purple-btn" onclick="setTheme('purple')">
+Purple
+</button>
+
+<button class="blue-btn" onclick="setTheme('blue')">
+Blue
+</button>
+
+<button class="green-btn" onclick="setTheme('green')">
+Green
+</button>
+
+<button class="red-btn" onclick="setTheme('red')">
+Red
+</button>
+
+<button class="orange-btn" onclick="setTheme('orange')">
+Orange
+</button>
+
+<button class="dark-btn" onclick="setTheme('dark')">
+Dark
+</button>
+
+</div>
+
+<button class="feedback-btn" onclick="openFeedback()">
+💬 Send Feedback
+</button>
+
+<button class="feedback-btn" onclick="toggleFeedbackView()">
+👁 View Feedback
+</button>
+
+<div class="feedback-list" id="feedbackList">
+</div>
+
+</div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<h1>
+Find Your Mood 🎵
+</h1>
+
+<p>
+How are you feeling today?
+</p>
+
+<div class="search-box">
+
+<input
+type="text"
+id="moodInput"
+placeholder="sad / chill / party / spiritual">
+
+<button onclick="searchMood()">
+Search
+</button>
+
+</div>
+
+<div id="result"></div>
+
+</div>
+
+<!-- FEEDBACK MODAL -->
+
+<div class="modal" id="feedbackModal">
+
+<div class="modal-box">
+
+<h2>
+💬 Send Feedback
+</h2>
+
+<textarea
+id="feedbackText"
+placeholder="Write feedback..."></textarea>
+
+<button class="send-btn"
+onclick="sendFeedback()">
+
+Send Feedback
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* SIDEBAR */
+
+function toggleSidebar(){
+
+document
+.getElementById("sidebar")
+.classList.toggle("active");
+
+}
+
+/* SETTINGS */
+
+function toggleSettings(){
+
+document
+.getElementById("settingsPanel")
+.classList.toggle("active");
+
+}
+
+/* USER */
+
+let userName =
+localStorage.getItem("userName")
+|| "Guest";
+
+let userEmail =
+localStorage.getItem("userEmail")
+|| "guest@gmail.com";
+
+/* PROFILE */
+
+document
+.getElementById("userName")
+.innerText = userName;
+
+document
+.getElementById("userEmail")
+.innerText = userEmail;
+
+document
+.getElementById("avatar")
+.innerText =
+userName.charAt(0).toUpperCase();
+
+/* THEME */
+
+function setTheme(theme){
+
+document.body.className = "";
+
+document.body.classList.add(theme);
+
+localStorage.setItem(
+"theme",
+theme
+);
+
+}
+
+/* LOAD THEME */
+
+window.onload = function(){
+
+let savedTheme =
+localStorage.getItem("theme");
+
+if(savedTheme){
+
+document.body.className = "";
+document.body.classList.add(savedTheme);
+
+}else{
+
+document.body.classList.add("purple");
+
+}
+
+};
+
+/* SEARCH */
+
+function searchMood(){
+
+let mood = document
+.getElementById("moodInput")
+.value
+.toLowerCase()
+.trim();
+
+/* EMPTY INPUT */
+
+if(mood === ""){
+
+document
+.getElementById("result")
+.innerHTML =
+"⚠ Please Enter Mood";
+
+return;
+
+}
+
+/* SAD */
+
+if(
+mood === "sad" ||
+mood === "broken melodies" ||
+mood === "emotional"
+){
+
+window.location.href =
+"sad.html";
+
+}
+
+/* CHILL */
+
+else if(
+mood === "chill" ||
+mood === "relax" ||
+mood === "dreamy vibes"
+){
+
+window.location.href =
+"chill.html";
+
+}
+
+/* PARTY */
+
+else if(
+mood === "party" ||
+mood === "dance floor" ||
+mood === "fun"
+){
+
+window.location.href =
+"party.html";
+
+}
+
+/* BHAKTI */
+
+else if(
+mood === "spiritual" ||
+mood === "bhakti" ||
+mood === "soulful shiva" ||
+mood === "hanuman"
+){
+
+window.location.href =
+"spiritual-mood.html";
+
+}
+
+/* CLASSICAL */
+
+else if(
+mood === "classical" ||
+mood === "lofi"||
+mood === "golden classic"
+){
+
+window.location.href =
+"classical.html";
+
+}
+
+/* NOT FOUND */
+
+else{
+
+document
+.getElementById("result")
+.innerHTML =
+"❌ Mood Not Found";
+
+}
+
+}
+/* ENTER KEY */
+
+document
+.getElementById("moodInput")
+.addEventListener(
+"keypress",
+function(e){
+
+if(e.key === "Enter"){
+
+searchMood();
+
+}
+
+}
+);
+
+/* FEEDBACK MODAL */
+
+function openFeedback(){
+
+document
+.getElementById("feedbackModal")
+.style.display = "flex";
+
+}
+
+/* SEND FEEDBACK */
+
+function sendFeedback(){
+
+let text =
+document
+.getElementById("feedbackText")
+.value
+.trim();
+
+if(!text){
+
+return;
+
+}
+
+let data =
+JSON.parse(
+localStorage.getItem("feedbacks")
+|| "[]"
+);
+
+data.push({
+
+user:userName,
+
+message:text
+
+});
+
+localStorage.setItem(
+"feedbacks",
+JSON.stringify(data)
+);
+
+document
+.getElementById("feedbackText")
+.value = "";
+
+document
+.getElementById("feedbackModal")
+.style.display = "none";
+
+showFeedbacks();
+
+}
+
+/* VIEW FEEDBACK */
+
+function toggleFeedbackView(){
+
+let list =
+document
+.getElementById("feedbackList");
+
+if(list.style.display === "block"){
+
+list.style.display = "none";
+
+}else{
+
+list.style.display = "block";
+
+showFeedbacks();
+
+}
+
+}
+
+/* SHOW FEEDBACK */
+
+function showFeedbacks(){
+
+let data =
+JSON.parse(
+localStorage.getItem("feedbacks")
+|| "[]"
+);
+
+let html = "";
+
+data.reverse().forEach(f=>{
+
+html += `
+
+<div class="feedback-item">
+
+<div class="feedback-user">
+${f.user}
+</div>
+
+<div>
+${f.message}
+</div>
+
+</div>
+
+`;
+
+});
+
+document
+.getElementById("feedbackList")
+.innerHTML = html;
+
+}
+
+</script>
+
+</body>
+</html>
