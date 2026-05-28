@@ -1,0 +1,20 @@
+{
+  "name": "mood-detection",
+  "version": "1.0.0",
+  "description": "| File | What changed | |------|-------------| | `server.js` | Added 3 Spotify API endpoints | | `spotify.js` | **NEW** – shared frontend helper (fetch + render songs) | | `sad.html` | Updated with Spotify section + search bar | | `chill.html` | **NEW** – Spotify integrated | | `party.html` | **NEW** – Spotify integrated | | `lofi.html`  | **NEW** – Spotify integrated | | `classic.html` | **NEW** – Spotify integrated |",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongoose": "^9.6.2"
+  }
+}
