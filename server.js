@@ -86,10 +86,17 @@ app.post("/login", async (req, res) => {
   }
 });
 
+
+
 /* =========================
    Server Start
-========================= */
+============================*/
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+
+app.get("/", (req, res) => {
+  res.send("ShivTunes Server is Live 🚀");
+});
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Server running");
 });
