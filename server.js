@@ -93,8 +93,10 @@ app.post("/login", async (req, res) => {
 ============================*/
 
 
+app.use(express.static(__dirname));
+
 app.get("/", (req, res) => {
-  res.send("ShivTunes Server is Live 🚀");
+  res.sendFile(__dirname + "/index.html");
 });
 
 app.listen(process.env.PORT || 3000, () => {
