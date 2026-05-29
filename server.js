@@ -12,10 +12,9 @@ app.use(cors());
    MongoDB Connection
 ========================= */
 
-mongoose.connect("mongodb://127.0.0.1:27017/musicApp")
+mongoose.connect("mongodb+srv://anshikashivhare102_db_user:eksrca6r8WJSTwB@cluster0.jhxqz1t.mongodb.net/musicApp?retryWrites=true&w=majority")
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
-
 /* =========================
    User Model
 ========================= */
