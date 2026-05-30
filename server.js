@@ -93,12 +93,12 @@ app.post("/login", async (req, res) => {
 ============================*/
 
 
-mongoose.connect("mongodb+srv://shivuser:Shiv%4012345@cluster0.jhxqz1t.mongodb.net/musicApp?retryWrites=true&w=majority")
-.then(() => {
-    console.log("MongoDB Connected");
+app.use(express.static(__dirname));
 
-    app.listen(process.env.PORT || 3000, () => {
-        console.log("Server running");
-    });
-})
-.catch(err => console.log(err));
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
+});
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Server running");
+});
