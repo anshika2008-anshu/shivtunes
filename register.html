@@ -41,21 +41,21 @@ async function registerUser(e){
     const password = document.getElementById("password").value;
 
     try {
-        const res = await fetch("http://localhost:3000/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({username, email, password})
-        });
+const res = await fetch("/register", {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({ username, email, password })
+});
 
-        const msg = await res.text();
-        showPopup(msg);
+const msg = await res.text();
+showPopup(msg);
 
-    } catch (error) {
-        showPopup("Server Error ❌");
-        console.log(error);
-    }
+} catch (error) {
+console.log(error);
+showPopup("Server Error ❌");
+}
 }
 
 // popup show
