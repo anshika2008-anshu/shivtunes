@@ -42,42 +42,41 @@ async function loginUser(event){
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    try {
+try {
 
-        const response = await fetch("http://localhost:3000/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ username, password })
-        });
+    const response = await fetch("/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username, password })
+    });
 
-        const result = await response.text();
+    const result = await response.text();
 
-        alert(result);
+    alert(result);
 
-        if(result === "Success"){
+    if (result === "Success") {
 
-            // ✅ SAVE USER DATA (ALL FIXED)
-            localStorage.setItem("userName", username);
-            localStorage.setItem("userEmail", username + "@gmail.com");
+        localStorage.setItem("userName", username);
+        localStorage.setItem("userEmail", username + "@gmail.com");
 
-            localStorage.setItem(
-                "profilePic",
-                "https://i.imgur.com/6VBx3io.png"
-            );
+        localStorage.setItem(
+            "profilePic",
+            "https://i.imgur.com/6VBx3io.png"
+        );
 
-            localStorage.setItem("isLoggedIn", "true");
+        localStorage.setItem("isLoggedIn", "true");
 
-            // ✅ ONLY ONE REDIRECT (IMPORTANT)
-            window.location.href = "moods.html";
-        }
-
-    } catch(error){
-        console.log(error);
-        alert("Server Error");
+        window.location.href = "moods.html";
     }
+
+} catch (error) {
+    console.log(error);
+    alert("Server Error");
 }
+}
+
 
 </script>
 
